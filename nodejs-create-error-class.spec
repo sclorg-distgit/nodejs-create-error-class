@@ -9,7 +9,7 @@
 
 Name:           %{?scl_prefix}nodejs-%{module_name}
 Version:        2.0.1
-Release:        4%{?dist}
+Release:        6%{?dist}
 Summary:        Create Error classes
 
 License:        MIT
@@ -19,7 +19,7 @@ Source0:        https://github.com/floatdrop/%{module_name}/archive/%{commit0}.t
 BuildArch:      noarch
 ExclusiveArch:  %{nodejs_arches} noarch
 
-BuildRequires:  nodejs010-runtime
+BuildRequires:  %{?scl_prefix}runtime
 
 %if 0%{?enable_tests}
 BuildRequires:  %{?scl_prefix}npm(inherits)
@@ -58,6 +58,12 @@ mocha
 %{nodejs_sitelib}/%{module_name}
 
 %changelog
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.0.1-6
+- Use macro in -runtime dependency
+
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.0.1-5
+- Rebuilt with updated metapackage
+
 * Tue Jan 12 2016 Tomas Hrcka <thrcka@redhat.com> - 2.0.1-4
 - Use macro to find provides and requires
 
